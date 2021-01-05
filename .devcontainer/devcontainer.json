@@ -1,0 +1,37 @@
+{
+	"name": "AtCoder",
+	"context": "..",
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+		"source=${localWorkspaceFolder}/code,target=/code,type=bind,consistency=cached"
+	],
+	"dockerFile": "Dockerfile",
+
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintPath": "/usr/local/bin/pylint"
+	},
+	
+	//"appPort": [ 8501 ],
+	
+	"postCreateCommand": "pip install -r requirements.txt",
+	
+	"remoteUser": "vscode",
+	"workspaceFolder": "/code",
+	
+	"extensions": [
+		"ms-python.python",
+		"coenraads.bracket-pair-colorizer-2",
+		"sanaajani.taskrunnercode",
+		"vscode-icons-team.vscode-icons",
+		"ms-vscode.cpptools",
+		"austin.code-gnu-global"
+	],
+}
